@@ -13,7 +13,7 @@ SECRET_KEY = '#qk+*p#(me&lp9fm1dtq6_3yb&95gmk=(3!$bglmn_748dw5m7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', 'django-byhospi.herokuapp.com']
 
 # Application definition
 
@@ -109,7 +109,7 @@ USE_TZ = True
 
 
 # settings/base.py
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
