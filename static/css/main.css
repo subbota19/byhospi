@@ -1,0 +1,31 @@
+body {
+    background: lightskyblue;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: url("/static/picture/dark_line.jpg");
+    height: 100px;
+    border-radius: 0 0 20px 20px;
+    margin: 0;
+    padding-bottom: 5px;
+
+}
+
+header:hover {
+    opacity: 0.4;
+}
+
+.main_page {
+    background: url("/static/picture/blue-abstract-texture.jpg");
+    margin-left: 80px;
+    margin-right: 80px;
+    border-radius: 15px;
+
+}
+.container {
+
+}
+
+

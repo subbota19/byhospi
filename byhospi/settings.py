@@ -13,11 +13,12 @@ SECRET_KEY = '#qk+*p#(me&lp9fm1dtq6_3yb&95gmk=(3!$bglmn_748dw5m7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'django-byhospi.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'django-byhospi.herokuapp.com']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jquery',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -109,7 +110,7 @@ USE_TZ = True
 
 
 # settings/base.py
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

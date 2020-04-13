@@ -1,0 +1,56 @@
+.by_map {
+    position: relative;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+svg {
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.part_map {
+    opacity: 0.5;
+    fill: dodgerblue;
+}
+
+.part_map:hover {
+    opacity: 0.9;
+    fill: orangered;
+}
+
+.main_text {
+    text-align: center;
+    font-size: 18px;
+    font-style: oblique;
+}
+
+
+.description_window {
+    display: none;
+    position: absolute;
+    initial-letter: 0;
+    white-space: pre-wrap;
+    text-align: left;
+    box-sizing: border-box;
+    background: whitesmoke;
+    font-size: 15px;
+    width: 380px;
+    height: 500px;
+    border-radius: 20px;
+    margin-left: 80px;
+    margin-top: 80px;
+    padding-left: 5px;
+}
+
