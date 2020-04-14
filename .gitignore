@@ -1,1 +1,6 @@
 venv
+
+#csv files with hospital data
+scrapy_byhospi/number.csv
+scrapy_byhospi/hospital.csv
+

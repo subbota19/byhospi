@@ -1,3 +1,9 @@
 from django.contrib import admin
+from map.models import Region
 
-# Register your models here.
+
+class AdminRegion(admin.ModelAdmin):
+    list_display = ['id', 'name', 'population']
+
+
+admin.site.register(Region, AdminRegion)
