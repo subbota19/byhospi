@@ -14,4 +14,3 @@ def add_hospital():
     pd.to_sql('hospital_hospital', engine, if_exists='append', index=False)
 
 
-add_number_phone()
