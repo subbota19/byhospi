@@ -10,22 +10,31 @@ header {
     border-radius: 0 0 20px 20px;
     margin: 0;
     padding-bottom: 5px;
+    position: relative;
 
 }
 
-header:hover {
-    opacity: 0.4;
-}
 
 .main_page {
-    background: url("/static/picture/blue-abstract-texture.jpg");
     margin-left: 80px;
     margin-right: 80px;
     border-radius: 15px;
 
 }
-.container {
 
+.site_name {
+    margin-left: 20px;
+    font-style: oblique;
+    font-size: 40px;
+    position: absolute;
+    color: white;
+}
+
+.site_name:hover {
+    font-size: 50px;
+}
+
+.container {
 }
 
 

@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import MapView
+from map import views
 
 urlpatterns = [
-    path('map', MapView.as_view(), name='map'),
+    path('map', views.MapView.as_view(), name='map'),
+    path('region/<slug:region>/<int:page>', views.RegionView.as_view(), name='region')
 
 ]

@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     'client',
     'map',
     'hospital',
+    'registration',
+    'map.templatetags',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +42,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 ROOT_URLCONF = 'byhospi.urls'
 
 TEMPLATES = [

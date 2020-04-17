@@ -6,6 +6,8 @@ class Hospital(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, unique=False, null=False)
     full_address = models.CharField(max_length=150, unique=False, null=False)
+    need_help = models.BooleanField(default=False)
+    description = models.TextField(blank=True, null=True, default=None)
 
     location = models.ForeignKey(Region, on_delete=models.CASCADE, null=False)
 

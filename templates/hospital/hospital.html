@@ -1,0 +1,76 @@
+{% extends 'main/main.html' %}
+{% load static %}
+{% load my_filter %}
+{% block content %}
+    <table class="table">
+        <tbody>
+        <tr>
+            <th class="table_name" width="50%">
+                Полное описание
+            </th>
+            <th class="table_name">
+                Комментарии
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th class="table_name">
+                            Полное название:
+                        </th>
+                        <td>
+                            <h1 class="font_style_for_hospital_page">{{ hospital.name }}</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="table_name">
+                            Адресс:
+                        </th>
+
+                        <td>
+                            <h1 class="font_style_for_hospital_page">{{ hospital.full_address }}</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="table_name">
+                            Область местонахождения:
+                        </th>
+                        <td>
+                            <h1 class="font_style_for_hospital_page">{{ hospital.location.name }}</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="table_name">
+                            Телефоны:
+                        </th>
+                        <td>
+                            {% for phone_number in hospital.number_set.all %}
+                                {% if phone_number.number_phone|instance_str %}
+                                    <h1 class="font_style_for_hospital_page"> {{ phone_number }}</h1>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="hospital_description">
+                    <p>
+                        {{ hospital.description }}
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div class="comments_win">
+                    {% for comment in hospital.comment_set.all %}
+                        <div class="comment">
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock content %}

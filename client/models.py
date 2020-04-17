@@ -15,11 +15,34 @@ class Status(models.Model):
         verbose_name_plural = 'Statuses'
 
 
+class HosAdmin(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=100, unique=True)
+    password = models.CharField(max_length=15, null=False)
+    email = models.EmailField(unique=True)
+    is_admin = models.BooleanField(default=True)
+    confirmed = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True)
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name = 'HosAdmin'
+        verbose_name_plural = 'HosAdmin'
+
+
 class Client(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=15, null=False)
     email = models.EmailField(unique=True)
+    is_admin = models.BooleanField(default=False)
     confirmed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)

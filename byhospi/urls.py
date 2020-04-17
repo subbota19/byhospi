@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from map import urls as map_urls
+from hospital import urls as hospital_urls
+from registration import urls as registration_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(map_urls))
-
+    path('', include(map_urls)),
+    path('hospital/', include(hospital_urls)),
+    path('registration/', include(registration_urls))
 ]
