@@ -1,0 +1,61 @@
+
+.user {
+    margin-top: 100px;
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background: white;
+    border: 8px solid black;
+    border-radius: 15px;
+    height: 500px;
+    width: 480px;
+}
+
+
+.form {
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 6px;
+    opacity: 0.8;
+}
+
+.form__group {
+    border-radius: 10px;
+    background: white;
+    padding: 6px;
+}
+
+.form__input {
+    display: block;
+    width: 90%;
+    padding: 20px;
+    border: 2px solid orange;
+    border-radius: 6px;
+
+}
+
+.form__input:focus {
+    background: grey;
+}
+
+
+.btn {
+    display: block;
+    width: 100%;
+    margin-top: 40px;
+    padding: 25px;
+    border-radius: 8px;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: orange;
+
+}
+
+.btn:hover {
+    background: grey;
+}
+
+

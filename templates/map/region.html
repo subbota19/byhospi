@@ -1,0 +1,55 @@
+{% extends 'main/main.html' %}
+{% load static %}
+{% load my_filter %}
+{% block content %}
+    <table class="table">
+        <tbody>
+        <tr>
+            <th class="table_name">
+                SOS
+            </th>
+            <th class="table_name">
+                Полное название и адрес поликлиник(-и)
+            </th>
+            <th class="table_name">
+                Регион
+            </th>
+            <th class="table_name">
+                Телефон(-ы)
+            </th>
+        </tr>
+        {% for hospital in hospitals %}
+            <tr>
+                <td>
+                    {% if  hospital.need_help %}
+                        <h1 class="font_style_for_help">!</h1>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'hospital' id=hospital.id %}">
+                        <h1 class="font_style_for_name">{{ hospital.name }}</h1>
+                        <h1 class="font_style_for_address">{{ hospital.full_address }}</h1>
+                    </a>
+                </td>
+                <td>
+                    <h1 class="font_style_for_region">{{ hospital.location.name }}</h1>
+                </td>
+                <td>
+                    {% for phone_number in hospital.number_set.all %}
+                        {% if phone_number.number_phone|instance_str %}
+                            <h1 class="font_style_for_number_phone"> {{ phone_number }}</h1>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="different_pages">
+        {% for index in pages_count %}
+            <a href="{% url 'region' region=region_name page=forloop.counter %}">
+                <b>{{ forloop.counter }}</b>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock content %}
