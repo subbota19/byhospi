@@ -8,13 +8,12 @@
     background: white;
     border: 8px solid black;
     border-radius: 15px;
-    height: 500px;
+    height: 535px;
     width: 480px;
 }
 
 
 .form {
-    margin-top: 80px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 6px;
@@ -44,7 +43,7 @@
 .btn {
     display: block;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 25px;
     border-radius: 8px;
     outline: 0;
@@ -58,4 +57,44 @@
     background: grey;
 }
 
+.btn:active {
+    color: orange;
+}
+
+.checkbox-row {
+    color: grey;
+    margin-left: 12px;
+    margin-top: 8px;
+
+}
+
+.error {
+    font-style: normal;
+    color: grey;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.add_button {
+    display: inline;
+    margin-top: 12px;
+    margin-bottom: 40px;
+    margin-left: 70%;
+    width: 20%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 0;
+    color: white;
+    background: orange;
+
+}
+
+.add_button:hover {
+    background: grey;
+}
+
+.add_button:active {
+    color: orange;
+}
 

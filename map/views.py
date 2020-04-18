@@ -11,7 +11,11 @@ class MapView(View):
 
 class RegionView(View):
     def get(self, request, page, region, *args, **kwargs):
+        if not request.session.get('anna', None):
+            print('ss')
+            return render(request, 'registration/signin.html')
         response = map.get_regions_by_name_and_id(page=page, region=region)
         if response['error']:
+            print('ji')
             return redirect('map')
         return render(request, 'map/region.html', response)
