@@ -1,8 +1,8 @@
 {% extends 'main/main.html' %}
 {% load static %}
 {% block content %}
+    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
     <div class="user">
-        <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
         <a href='{% url 'sign' %}'>
             <button class="add_button">
                 Sign In
@@ -33,6 +33,7 @@
                     <option value="2">Врач</option>
                     <option value="3">Foreigner</option>
                 </select>
+
             </div>
             <div class="checkbox-row">
                 <label for="_is_admin">

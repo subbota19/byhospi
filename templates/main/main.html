@@ -11,7 +11,16 @@
 </head>
 <body>
 <header>
-    <h1 class="site_name">Byhospi.com</h1>
+    <div>
+        <h1 class="site_name">Byhospi.com</h1>
+    </div>
+    <div>
+        <a href="{% url 'logout' %}">
+            <btn class="add_button">
+                Log Out
+            </btn>
+        </a>
+    </div>
 </header>
 <div class="main_page">
 

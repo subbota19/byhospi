@@ -2,6 +2,7 @@
 {% load static %}
 {% load my_filter %}
 {% block content %}
+    <script type="text/javascript" src="{% static 'js/description.js' %}"></script>
     <table class="table">
         <tbody>
         <tr>
@@ -13,7 +14,7 @@
             </th>
         </tr>
         <tr>
-            <td>
+            <td height="400px">
                 <table class="table">
                     <tbody>
                     <tr>
@@ -55,22 +56,49 @@
                     </tr>
                     </tbody>
                 </table>
-                <div class="hospital_description">
-                    <p>
-                        {{ hospital.description }}
-                    </p>
+                <form class="form" method="post" id="description-form">
+                    {% csrf_token %}
+                    {% if is_admin in 'true' %}
+                        <div class="desc">
+                                              <textarea id="description" cols="120" rows="8">{{ hospital.description }}
+                                               </textarea>
+                        </div>
+                        <div class="edit">
+                            <input type="submit" id='textarea' value="Edit">
+                        </div>
+                    {% else %}
+                        <div class="desc">
+                                                      <textarea id="description" cols="120" rows="8"
+                                                                disabled="disabled">{{ hospital.description }}
+                                                       </textarea>
+                        </div>
+                    {% endif %}
+                </form>
                 </div>
             </td>
-            <td>
+            <td height="400px">
                 <div class="comments_win">
                     {% for comment in hospital.comment_set.all %}
                         <div class="comment">
-
+                            <i>
+                                {{ comment.created }}
+                                <br>
+                                {{ comment.client_hospital.username }} {{ comment.client_hospital.status }}
+                            </i>
+                            <br>
+                            {{ comment.description }}
                         </div>
                     {% endfor %}
                 </div>
+                {% if is_admin in 'false' %}
+                    <form method="post" id="comment-form">
+                        <input class="form__group" id="comment" type="text" placeholder="Введите сообщение">
+                        <button class="btn" type="submit" id="btn-comment">Отправить</button>
+                    </form>
+                {% endif %}
             </td>
         </tr>
         </tbody>
     </table>
+
 {% endblock content %}

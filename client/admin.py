@@ -1,13 +1,18 @@
 from django.contrib import admin
-from client.models import Comment, Client, Status
+from client.models import Comment, Client, Status, HosAdmin
 
 
 class AdminClient(admin.ModelAdmin):
     list_display = ['id', 'username', 'confirmed', 'email', 'updated', 'status']
 
 
+class AdminHosAdmin(admin.ModelAdmin):
+    list_display = ['id', 'username', 'confirmed', 'email', 'updated', 'status']
+
+
 class AdminComment(admin.ModelAdmin):
     list_display = ['id', 'description', 'client_hospital', 'hospital_client']
+    list_filter = ['client_hospital', 'hospital_client']
 
 
 class AdminStatus(admin.ModelAdmin):
@@ -17,3 +22,4 @@ class AdminStatus(admin.ModelAdmin):
 admin.site.register(Status, AdminStatus)
 admin.site.register(Client, AdminClient)
 admin.site.register(Comment, AdminComment)
+admin.site.register(HosAdmin, AdminHosAdmin)
