@@ -6,7 +6,7 @@ $(document).on('submit', '#post-form', function (event) {
     let password = $('#password').val();
     let status = $('#status option:selected').attr('value');
 
-    if (username && email && password && email)
+    if (username && email && password)
         $.ajax({
             type: 'POST',
             url: '/registration/login',
@@ -22,9 +22,9 @@ $(document).on('submit', '#post-form', function (event) {
             success: function (data) {
                 let map = ($(data).find('.by_map'));
                 if ($(map).is('.by_map')) {
-                    $('.container').html($('.by_map'));
+                    $('.container').html(map);
                 }
-                let user = ($(data).find('.user'))
+                let user = ($(data).find('.user'));
                 if (user.is('.user')) {
                     $('.error').html('user with this username or email already has used');
                     $('.container').html($('.user'));

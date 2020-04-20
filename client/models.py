@@ -25,9 +25,7 @@ class HosAdmin(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
-    region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True)
-    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, null=False)
 
     def __str__(self):
         return self.username
