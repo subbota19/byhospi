@@ -15,7 +15,7 @@ class HospitalView(View):
                 redirect('sign')
         if response['error']:
             return redirect('map')
-        return render(request, 'hospital/hospital.html')
+        return redirect('/hospital/{}'.format(id))
 
     def get(self, request, id, *args, **kwargs):
         try:
@@ -24,7 +24,10 @@ class HospitalView(View):
         except KeyError:
             return redirect('sign')
         response = hospital.get_info_about_hospital(id)
-        response['is_admin'] = request.COOKIES['is_admin']
+        try:
+            response['is_admin'] = request.COOKIES['is_admin']
+        except KeyError:
+            redirect('sign')
         if response['error']:
             return redirect('map')
         return render(request, 'hospital/hospital.html', response)
