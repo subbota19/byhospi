@@ -9,7 +9,7 @@ $(document).on('submit', '#post-form', function (event) {
     if (username && email && password)
         $.ajax({
             type: 'POST',
-            url: '/registration/login',
+            url: '/registration/login/',
             data: {
                 username: username,
                 email: email,

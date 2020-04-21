@@ -6,7 +6,7 @@ $(document).on('submit', '#post-form', function (event) {
     if (username && password) {
         $.ajax({
             type: 'POST',
-            url: '/registration/sign',
+            url: '/registration/sign/',
             data: {
                 username: username,
                 password: password,
