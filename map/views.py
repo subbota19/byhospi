@@ -6,7 +6,6 @@ from service import map
 class MapView(View):
 
     def get(self, request, *args, **kwargs):
-        print('hi')
         return render(request, 'map/map.html', {'info': map.main_info_about_region()})
 
 
