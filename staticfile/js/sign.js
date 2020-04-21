@@ -6,7 +6,7 @@ $(document).on('submit', '#post-form', function (event) {
     if (username && password) {
         $.ajax({
             type: 'POST',
-            url: '/registration/sign',
+            url: '/registration/sign/',
             data: {
                 username: username,
                 password: password,
@@ -15,6 +15,7 @@ $(document).on('submit', '#post-form', function (event) {
                 action: 'post'
             },
             success: function (data) {
+                console.log(username);
                 let map = ($(data).find('.by_map'));
                 if ($(map).is('.by_map')) {
                     $('.container').html(map);
