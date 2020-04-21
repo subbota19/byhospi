@@ -2,6 +2,8 @@ import os
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.contrib.staticfiles import finders
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -18,7 +20,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'django-byhospi.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'bower_components',
+    'djangobower',
     'client',
     'map',
     'hospital',
@@ -122,3 +124,14 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),)
+STATICFILES_FINDERS = [
+    'djangobower.finders.BowerFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+BOWER_COMPONENTS_ROOT = '/home/zhenya/PycharmProjects/django/byhospi/'
+
+BOWER_INSTALLED_APPS = (
+    'jquery#3.5.0',
+    'underscore',
+)

@@ -30,7 +30,6 @@ $(document).ready(function () {
             },
             success: function (data) {
                 $('#comment').val('');
-                let user = $('i:last').text();
                 let date = new Date();
 
                 $('.comments_win').append('<div class="comment">' + date.toUTCString() + '<br>you' + '<br>' + comment + '</div>')

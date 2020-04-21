@@ -8,12 +8,12 @@ SESSION_TIME = 300
 class LogIn(View):
 
     def post(self, request):
+        request.session.set_expiry(SESSION_TIME)
+        request.session[request.POST['username']] = True
+        response = HttpResponseRedirect('/map')
+        response.set_cookie('username', request.POST['username'])
+        response.set_cookie('is_admin', request.POST['is_admin'])
         if login.login(request):
-            request.session.set_expiry(SESSION_TIME)
-            request.session[request.POST['username']] = True
-            response = HttpResponseRedirect('/map')
-            response.set_cookie('username', request.POST['username'])
-            response.set_cookie('is_admin', request.POST['is_admin'])
             return response
         return render(request, 'registration/login.html')
 
@@ -32,12 +32,12 @@ class LogOut(View):
 
 class SignIn(View):
     def post(self, request):
+        request.session.set_expiry(SESSION_TIME)
+        request.session[request.POST['username']] = True
+        response = HttpResponseRedirect('/map')
+        response.set_cookie('is_admin', request.POST['is_admin'])
+        response.set_cookie('username', request.POST['username'])
         if sign.sign(request):
-            request.session.set_expiry(SESSION_TIME)
-            request.session[request.POST['username']] = True
-            response = HttpResponseRedirect('/map')
-            response.set_cookie('is_admin', request.POST['is_admin'])
-            response.set_cookie('username', request.POST['username'])
             return response
         return redirect('sign')
 
