@@ -11,7 +11,7 @@ class LogIn(View):
         if login.login(request):
             request.session.set_expiry(SESSION_TIME)
             request.session[request.POST['username']] = True
-            response = HttpResponseRedirect('/map')
+            response = HttpResponseRedirect('/map/')
             response.set_cookie('username', request.POST['username'])
             response.set_cookie('is_admin', request.POST['is_admin'])
             return response
@@ -35,7 +35,7 @@ class SignIn(View):
         if sign.sign(request):
             request.session.set_expiry(SESSION_TIME)
             request.session[request.POST['username']] = True
-            response = HttpResponseRedirect('/map')
+            response = HttpResponseRedirect('/map/')
             response.set_cookie('is_admin', request.POST['is_admin'])
             response.set_cookie('username', request.POST['username'])
             return response

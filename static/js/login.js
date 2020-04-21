@@ -7,7 +7,7 @@ $(document).on('submit', '#post-form', function (event) {
     let status = $('#status option:selected').attr('value');
 
     if (username && email && password)
-        $.post({
+        $.ajax({
             type: 'POST',
             url: '/registration/login',
             data: {
