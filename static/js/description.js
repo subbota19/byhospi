@@ -29,9 +29,11 @@ $(document).ready(function () {
                 action: 'post'
             },
             success: function (data) {
-                let user = $('i:last').text();
                 $('#comment').val('');
-                $('.comments_win').append('<div class="comment">' + user + '<br>' + comment + '</div>')
+                let user = $('i:last').text();
+                let date = new Date();
+
+                $('.comments_win').append('<div class="comment">' + date.toUTCString() + '<br>you' + '<br>' + comment + '</div>')
             },
             error: function (xhr, errmsg, err) {
                 console.log(xhr.status + ": " + xhr.responseText);
