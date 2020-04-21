@@ -18,7 +18,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'django-byhospi.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'jquery',
+    'bower_components',
     'client',
     'map',
     'hospital',
