@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#description-form').submit(function () {
         let description = $('#description').val();
-        $.ajax({
+        $.post({
             type: 'POST',
             url: window.location.href.url,
             data: {
@@ -20,7 +20,7 @@ $(document).ready(function () {
     })
     $('#comment-form').submit(function () {
         let comment = $('#comment').val();
-        $.ajax({
+        $.post({
             type: 'POST',
             url: window.location.href.url,
             data: {

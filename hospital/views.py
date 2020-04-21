@@ -15,7 +15,7 @@ class HospitalView(View):
                 redirect('sign')
         if response['error']:
             return redirect('map')
-        return redirect('/hospital/{}/'.format(id))
+        return redirect('/hospital/{}'.format(id))
 
     def get(self, request, id, *args, **kwargs):
         try:

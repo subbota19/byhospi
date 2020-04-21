@@ -4,7 +4,7 @@ $(document).on('submit', '#post-form', function (event) {
     let password = $('#password').val();
     let is_admin = $('#is_admin').prop('checked');
     if (username && password) {
-        $.ajax({
+        $.post({
             type: 'POST',
             url: '/registration/sign',
             data: {
