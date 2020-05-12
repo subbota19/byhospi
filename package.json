@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "bower": "0.8.4"
+    "bower": ">=0.8.4"
   },
   "engines": {
     "npm": "3.10.10",
