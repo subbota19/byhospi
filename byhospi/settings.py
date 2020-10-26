@@ -70,11 +70,19 @@ WSGI_APPLICATION = 'byhospi.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    'production': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2o212jsq1k1cq',
+        'USER': 'ipryhmwjbrrkpl',
+        'PASSWORD': 'c95bd38e304c2763e1f567a005f6d3ee3decd0e73165e1670b209ef46a7d4686',
+        'HOST': 'ec2-52-6-143-153.compute-1.amazonaws.com',
+        'PORT': '5432'
+    },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'byhospi',
-        'USER': 'zhenya',
-        'PASSWORD': 'zhenya',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '1919',
         'HOST': '127.0.0.1',
         'PORT': '5432'
     }

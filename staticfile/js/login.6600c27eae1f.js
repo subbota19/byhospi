@@ -25,10 +25,8 @@ $(document).on('submit', '#post-form', function (event) {
                     $('.container').html(map);
                 }
                 let user = ($(data).find('.user'));
-                if (password.length < 4 || 4 > username.length >= 20) {
-                    $('.error').html('password or username mismatch according to naming rules');
-                    $('.container').html($('.user'));
-                } else if (user.is('.user')) {
+                console.log(user);
+                if (user.is('.user')) {
                     $('.error').html('user with this username or email already has used');
                     $('.container').html($('.user'));
                 }

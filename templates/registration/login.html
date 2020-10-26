@@ -1,49 +1,49 @@
 {% extends 'main/main.html' %}
 {% load static %}
 {% block content %}
-    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
-    <div class="user">
-        <a href='{% url 'sign' %}'>
-            <button class="add_button">
-                Sign In
-            </button>
-        </a>
-        <form class="form" id="post-form" method="post">
-            {% csrf_token %}
-            <div class="form__group">
-                <label>
-                    <input type="text" placeholder="Username" id="username" class="form__input"/>
-                </label>
-            </div>
+<script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+<div class="user">
+    <a href="{% url 'sign' %}">
+        <button class="add_button">
+            Sign In
+        </button>
+    </a>
+    <form class="form" id="post-form" method="post">
+        {% csrf_token %}
+        <div class="form__group">
+            <label>
+                <input type="text" placeholder="Username" id="username" class="form__input"/>
+            </label>
+        </div>
 
-            <div class="form__group">
-                <label>
-                    <input type="email" placeholder="Email" id="email" class="form__input"/>
-                </label>
-            </div>
+        <div class="form__group">
+            <label>
+                <input type="email" placeholder="Email" id="email" class="form__input"/>
+            </label>
+        </div>
 
-            <div class="form__group">
-                <label>
-                    <input type="password" placeholder="Password" id="password" class="form__input"/>
-                </label>
-            </div>
-            <div class="form__group">
-                <select id="status">
-                    <option value="1">Порядочный гражданин РБ</option>
-                    <option value="2">Врач</option>
-                    <option value="3">Foreigner</option>
-                </select>
+        <div class="form__group">
+            <label>
+                <input type="password" placeholder="Password" id="password" class="form__input"/>
+            </label>
+        </div>
+        <div class="form__group">
+            <select id="status">
+                <option value="1">Порядочный гражданин РБ</option>
+                <option value="2">Врач</option>
+                <option value="3">Foreigner</option>
+            </select>
 
-            </div>
-            <div class="checkbox-row">
-                <label for="_is_admin">
-                    Admin?
-                </label>
-                <input id="is_admin" type="checkbox" value="no">
-            </div>
-            <button class="btn" type="submit">Register</button>
-            <div class="error">
-            </div>
-        </form>
-    </div>
+        </div>
+        <div class="checkbox-row">
+            <label for="_is_admin">
+                Admin?
+            </label>
+            <input id="is_admin" type="checkbox" value="no">
+        </div>
+        <button class="btn" type="submit">Register</button>
+        <div class="error">
+        </div>
+    </form>
+</div>
 {% endblock content %}
