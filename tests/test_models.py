@@ -17,6 +17,6 @@ class ClientModelTest(TestCase):
         client = Client.objects.get(username="yauheni")
         self.assertEquals(client.username, "yauheni")
 
-    # def test_validate_obj_representation(self):
-    #     client = Client.objects.get(username="yauheni")
-    #     self.assertEquals(client.__str__(), "yauheni")
+    def test_validate_obj_representation(self):
+        client = Client.objects.get(username="yauheni")
+        self.assertEquals(client.__str__(), "yauheni")
