@@ -1,19 +1,21 @@
 from django.contrib import admin
-from hospital.models import Hospital, Number
+
+from hospital.models import Hospital
+from hospital.models import Number
 
 
 class AdminHospital(admin.ModelAdmin):
-    list_display = ['id', 'name', 'full_address', 'location', 'phone_number']
-    search_fields = ['name', 'full_address']
-    list_filter = ['location']
+    list_display = ["id", "name", "full_address", "location", "phone_number"]
+    search_fields = ["name", "full_address"]
+    list_filter = ["location"]
 
     @staticmethod
     def phone_number(obj):
-        return ','.join(x.number_phone for x in obj.number_set.all() if x.number_phone)
+        return ",".join(x.number_phone for x in obj.number_set.all() if x.number_phone)
 
 
 class AdminNumber(admin.ModelAdmin):
-    list_display = ['id', 'number_phone', 'hospital']
+    list_display = ["id", "number_phone", "hospital"]
 
 
 admin.site.register(Hospital, AdminHospital)

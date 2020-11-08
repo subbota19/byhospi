@@ -1,4 +1,5 @@
 from django.db import models
+
 from map.models import Region
 
 
@@ -15,8 +16,8 @@ class Hospital(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Hospital'
-        verbose_name_plural = 'Hospitals'
+        verbose_name = "Hospital"
+        verbose_name_plural = "Hospitals"
 
 
 class Number(models.Model):
@@ -29,5 +30,5 @@ class Number(models.Model):
         return self.number_phone
 
     class Meta:
-        verbose_name = 'Number'
-        verbose_name_plural = 'Numbers'
+        verbose_name = "Number"
+        verbose_name_plural = "Numbers"

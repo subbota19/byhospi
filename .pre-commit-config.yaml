@@ -1,0 +1,41 @@
+default_language_version:
+  python: python3
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0
+    hooks:
+      # run test and check code before commit
+      - id: check-merge-conflict
+      - id: debug-statements
+  - repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+  - repo: https://github.com/myint/autoflake
+    rev: "v1.4"
+    hooks:
+      - id: autoflake
+    # args: [ --in-place, --remove-all-unused-imports, --remove-duplicate-keys ]
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: "v2.7.3"
+    hooks:
+      - id: pyupgrade
+
+  - repo: https://github.com/asottile/reorder_python_imports
+    rev: "v2.3.6"
+    hooks:
+      - id: reorder-python-imports
+
+  - repo: https://github.com/asottile/yesqa
+    rev: "v1.2.2"
+    hooks:
+      - id: yesqa
+
+  - repo: local
+    hooks:
+      - id: tests
+        name: Run tests
+        entry: "bash tests.sh"
+        language: system
+        verbose: true
