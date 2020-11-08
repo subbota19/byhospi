@@ -43,5 +43,4 @@ class ClientModelTest(TestCase):
 
     @staticmethod
     def get_testing_user():
-        logging.info(Client.objects.get(username="yauheni").password)
         return Client.objects.get(username="yauheni")
