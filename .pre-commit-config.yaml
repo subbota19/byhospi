@@ -17,14 +17,6 @@ repos:
         entry: "bash tests.sh"
         language: system
         verbose: true
-#      - id: py3
-#        name: py3
-#        language: python
-#        language_version: python3
-#        entry: python --version
-#        verbose: true
-#        pass_filenames: false
-#        always_run: true
 
   - repo: https://github.com/myint/autoflake
     rev: "v1.4"
