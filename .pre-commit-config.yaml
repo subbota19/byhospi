@@ -4,6 +4,7 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.3.0
     hooks:
+      # run test and check code before commit
       - id: check-merge-conflict
       - id: debug-statements
   - repo: https://github.com/psf/black

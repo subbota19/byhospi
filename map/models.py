@@ -10,5 +10,5 @@ class Region(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Region'
-        verbose_name_plural = 'Regions'
+        verbose_name = "Region"
+        verbose_name_plural = "Regions"
