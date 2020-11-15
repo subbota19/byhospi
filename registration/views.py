@@ -17,6 +17,7 @@ class LogIn(View):
             response = HttpResponseRedirect("/map")
             response.set_cookie("username", request.POST["username"])
             response.set_cookie("is_admin", request.POST["is_admin"])
+            response.status_code = 200
             return response
         return render(request, "registration/login.html")
 
