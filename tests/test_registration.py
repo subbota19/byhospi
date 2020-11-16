@@ -1,6 +1,8 @@
 import requests
 from django.test import Client as TestClient
 from django.test import TestCase
+from parameterized import parameterized
+from parameterized import parameterized_class
 
 from client.models import Client
 from client.models import HosAdmin
