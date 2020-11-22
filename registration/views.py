@@ -15,9 +15,8 @@ class LogIn(View):
             request.session.set_expiry(SESSION_TIME)
             request.session[request.POST["username"]] = True
             response = HttpResponseRedirect("/map")
-            response.set_cookie("username", request.POST["username"])
             response.set_cookie("is_admin", request.POST["is_admin"])
-            response.status_code = 200
+            response.set_cookie("username", request.POST["username"])
             return response
         return render(request, "registration/login.html")
 
