@@ -5,13 +5,11 @@ from client.models import Status
 
 def login(request):
     is_created_user = False
-    dict_with_model = {"HosAdmin": HosAdmin, "Client": Client}
-    if not dict_with_model[request.POST["is_admin"]].objects.filter(
+    model = HosAdmin if request.POST["is_admin"] == "true" else Client
+    if not model.objects.filter(
         username=request.POST["username"]
-    ) and not dict_with_model[request.POST["is_admin"]].objects.filter(
-        email=request.POST["email"]
-    ):
-        dict_with_model[request.POST["is_admin"]](
+    ) and not model.objects.filter(email=request.POST["email"]):
+        model(
             username=request.POST["username"],
             email=request.POST["email"],
             password=request.POST["password"],

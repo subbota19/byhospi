@@ -6,9 +6,9 @@ from client.models import HosAdmin
 
 def sign(request):
     is_confirmed_user = False
-    dict_with_model = {"true": HosAdmin, "false": Client}
+    model = HosAdmin if request.POST["is_admin"] == "true" else Client
 
-    if dict_with_model[request.POST["is_admin"]].objects.filter(
+    if model.objects.filter(
         username=request.POST["username"], password=request.POST["password"]
     ) or User.objects.filter(
         username=request.POST["username"], password=request.POST["password"]

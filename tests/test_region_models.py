@@ -9,7 +9,7 @@ MAX_REGION_NAME_LENGTH = 30
 @parameterized_class(
     ("name", "population"), [("Berlin", 8000000.56), ("Minsk", 750000.00)]
 )
-class MapModelTest(TestCase):
+class RegionModelTest(TestCase):
     def setUp(self):
         Region.objects.create(name=self.name, population=self.population)
 
