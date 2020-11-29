@@ -3,4 +3,7 @@ venv
 #csv files with hospital data
 scrapy_byhospi/number.csv
 scrapy_byhospi/hospital.csv
-
+# browser test log
+geckodriver.log
+# output info about server status (runing daemon process)
+nohup.out
