@@ -1,0 +1,1 @@
+python3 manage.py dumpdata --indent 4 -e sessions -e admin --natural-foreign --natural-primary > fixture/models.json
