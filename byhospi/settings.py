@@ -85,6 +85,7 @@ DATABASES = {
         "PASSWORD": "1919",
         "HOST": "127.0.0.1",
         "PORT": "5432",
+        "TEST": {"NAME": "test_db", "ID": 10},
     },
 }
 db_from_env = dj_database_url.config()

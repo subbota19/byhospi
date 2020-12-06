@@ -7,3 +7,6 @@ scrapy_byhospi/hospital.csv
 geckodriver.log
 # output info about server status (runing daemon process)
 nohup.out
+
+# pycharm files
+.idea

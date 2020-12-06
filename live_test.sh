@@ -1,1 +1,1 @@
-python3 manage.py test tests.test_great
+python3 manage.py test tests.test_mac_bain
