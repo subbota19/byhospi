@@ -10,6 +10,7 @@ def main_info_about_region():
         regions[item]["count"] = region_object.hospital_set.all().count()
         regions[item]["population"] = region_object.population
         regions[item]["name"] = region_object.name
+        regions[item]["official_link"] = region_object.official_link
         regions[item]["help"] = (
             region_object.hospital_set.all().filter(need_help=True).count()
         )
@@ -29,7 +30,6 @@ def get_regions_by_name_and_id(region, page, obj_on_page=10):
     try:
         hospitals = (
             Hospital.objects.filter(location__name=dict_for_transformation_name[region])
-            .order_by("need_help")
             .order_by("need_help")
             .reverse()
         )
