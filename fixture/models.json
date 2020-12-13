@@ -207,7 +207,8 @@
     "pk": 1,
     "fields": {
         "name": "\u0411\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
-        "population": "1380391.00"
+        "population": "1380391.00",
+        "official_link": "https://www.belarus.by/ru/about-belarus/geography/brest-region"
     }
 },
 {
@@ -215,7 +216,8 @@
     "pk": 2,
     "fields": {
         "name": "\u0413\u043e\u043c\u0435\u043b\u044c\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
-        "population": "1409890.00"
+        "population": "1409890.00",
+        "official_link": "https://www.belarus.by/ru/about-belarus/geography/gomel-region"
     }
 },
 {
@@ -223,7 +225,8 @@
     "pk": 3,
     "fields": {
         "name": "\u0413\u0440\u043e\u0434\u043d\u0435\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
-        "population": "1039278.00"
+        "population": "1039278.00",
+        "official_link": "https://www.belarus.by/ru/about-belarus/geography/grodno-region"
     }
 },
 {
@@ -231,7 +234,8 @@
     "pk": 4,
     "fields": {
         "name": "\u0412\u0438\u0442\u0435\u0431\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
-        "population": "1171523.00"
+        "population": "1171523.00",
+        "official_link": "https://www.belarus.by/ru/about-belarus/geography/vitebsk-region"
     }
 },
 {
@@ -239,7 +243,8 @@
     "pk": 5,
     "fields": {
         "name": "\u041c\u0438\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
-        "population": "3421215.00"
+        "population": "3421215.00",
+        "official_link": "https://www.belarus.by/ru/about-belarus/geography/minsk-region"
     }
 },
 {
@@ -247,7 +252,8 @@
     "pk": 6,
     "fields": {
         "name": "\u041c\u043e\u0433\u0438\u043b\u0435\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
-        "population": "1052877.00"
+        "population": "1052877.00",
+        "official_link": "https://www.belarus.by/ru/about-belarus/geography/mogilev-region"
     }
 },
 {
@@ -13683,7 +13689,7 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$180000$W3T4piYQT7ja$UksxXNv6MuZmSi2ubfEb9Sno2oVmjri99UyoqRcugrY=",
-        "last_login": "2020-11-22T14:05:51.020Z",
+        "last_login": "2020-12-12T14:25:39.034Z",
         "is_superuser": true,
         "username": "zhen",
         "first_name": "",

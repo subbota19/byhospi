@@ -7,7 +7,6 @@ from django.contrib.sessions.models import Session
 from django.test import Client as TestClient
 from django.test import TestCase
 
-from client.models import Comment
 from hospital.models import Hospital
 
 HOST = "127.0.0.1"
