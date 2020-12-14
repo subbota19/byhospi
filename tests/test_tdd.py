@@ -22,9 +22,9 @@ class ImplementMapFeatureTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        cls.turn_on_server()
         cls.test_client = TestClient(enforce_csrf_checks=False)
         cls.turn_off_server()
+        cls.turn_on_server()
 
     @staticmethod
     def turn_on_server():
