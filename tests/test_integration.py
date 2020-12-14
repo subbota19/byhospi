@@ -1,14 +1,15 @@
+from subprocess import call
+
+from django.contrib.sessions.models import Session
+from django.test import Client as TestClient
 from django.test import TestCase
 from parameterized import parameterized_class
-from django.test import Client as TestClient
-from django.contrib.sessions.models import Session
 
-from subprocess import call
 from client.models import Client
 from client.models import HosAdmin
 from client.models import Region
 
-HOST = '127.0.0.1'
+HOST = "127.0.0.1"
 PORT = 8080
 REGISTRATION_URL = "/registration/login/"
 AUTHENTICATION_URL = "/registration/sign/"
@@ -20,21 +21,32 @@ REGION_URL = "/region/"
 
 @parameterized_class(
     ("username", "password", "email", "status", "is_admin"),
-    [("yauheni", "zs1919", "zhenya@mail.ru", 1, "true",),
-     ("anton", "an1234", "anton@mail.ru", 1, "false")],
+    [
+        (
+            "yauheni",
+            "zs1919",
+            "zhenya@mail.ru",
+            1,
+            "true",
+        ),
+        ("anton", "an1234", "anton@mail.ru", 1, "false"),
+    ],
 )
-class ViewsTests(TestCase):
+class IntegrationTests(TestCase):
     """
-       This class allows checking bound components in the website with different cases
+    This class allows checking bound components in the website with different cases
     """
-    fixtures = ['models.json']
+
+    fixtures = ["models.json"]
+
+    @classmethod
+    def setUpTestData(cls):
+        cls.turn_on_server()
+        cls.test_client = TestClient(enforce_csrf_checks=False)
+        cls.turn_off_server()
 
     def setUp(self):
-        self.model = HosAdmin if self.is_admin == 'true' else Client
-
         self.test_client = TestClient(enforce_csrf_checks=False)
-
-        call('./run_server.sh {} {}'.format(HOST, PORT), shell=True)
 
         self.registration_response = self.post_request(
             params={
@@ -43,25 +55,35 @@ class ViewsTests(TestCase):
                 "email": self.email,
                 "is_admin": self.model,
                 "status": self.status,
-            }, url=REGISTRATION_URL)
+            },
+            url=REGISTRATION_URL,
+        )
         self.authentication_response = self.post_request(
             params={
                 "username": self.username,
                 "password": self.password,
                 "is_admin": self.model,
-            }, url=AUTHENTICATION_URL)
+            },
+            url=AUTHENTICATION_URL,
+        )
 
-    @classmethod
-    def tearDownClass(cls):
-        call('./kill_sub.sh {}'.format(PORT), shell=True)
-        super(TestCase, cls).tearDownClass()
+    @staticmethod
+    def turn_on_server():
+        call("./run_server.sh {} {}".format(HOST, PORT), shell=True)
+
+    @staticmethod
+    def turn_off_server():
+        call("./kill_sub.sh {}".format(PORT), shell=True)
 
     def get_request(self, url, params):
-        return self.test_client.get(path="http://{}:{}{}".format(HOST, PORT, url), data=params)
+        return self.test_client.get(
+            path="http://{}:{}{}".format(HOST, PORT, url), data=params
+        )
 
     def post_request(self, url, params):
-        return self.test_client.post(path="http://{}:{}{}".format(HOST, PORT, url),
-                                     data=params, secure=False)
+        return self.test_client.post(
+            path="http://{}:{}{}".format(HOST, PORT, url), data=params, secure=False
+        )
 
     def test_check_logged_user_in_system(self):
         self.assertEquals(self.registration_response.url, MAP_URL)
@@ -74,13 +96,22 @@ class ViewsTests(TestCase):
         self.assertEquals(self.authentication_response.status_code, 302)
 
     def test_check_session(self):
-        self.assertEquals(any(name.get_decoded().get(self.username, None) for name in Session.objects.all()), True)
+        self.assertEquals(
+            any(
+                name.get_decoded().get(self.username, None)
+                for name in Session.objects.all()
+            ),
+            True,
+        )
 
     def test_map_view_status_code(self):
         self.assertEquals(self.get_request(url=MAP_URL, params={}).status_code, 200)
 
     def test_map_view_url(self):
-        self.assertEquals(self.get_request(url=MAP_URL, params={}).request['PATH_INFO'], MAP_URL)
+        self.assertEquals(
+            self.get_request(url=MAP_URL, params={}).request["PATH_INFO"], MAP_URL
+        )
+
 
 # class MapView(DjangoHTTPContext):
 #     def setUp(self):
